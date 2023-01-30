@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Query Selectors">
+        <div class="slds-m-around_medium">
+            <h1>I am new but pro in learning LWC</h1>
+            <template for:each={carNames} for:item="car">
+                <div class="name" key={car}>{car}</div>
+            </template>
+            <div class="child" lwc:dom="manual">
+
+            </div>
+            <lightning-button variant="brand" onclick={handleClick} label="Click Me"></lightning-button>
+        </div>
+    </lightning-card>
+</template>

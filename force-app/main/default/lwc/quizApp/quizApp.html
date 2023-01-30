@@ -1,0 +1,44 @@
+<template>
+    <lightning-card title="Test 010 : PD1" icon-name="custom:custom12">
+        <template if:true={showResult}>
+            <div class={isScoredFull}><strong>You have scored {correctAnswers} out of
+                    {myQuestion.length}</strong>
+            </div>
+        </template>
+        <form>
+            <div class="slds-p-horizontal_medium">
+                <template for:each={myQuestion} for:item="quiz">
+                    <div key={quiz.Id}>
+                        <div class="slds-m-top_medium"><strong>{quiz.Id} : {quiz.question}</strong></div>
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-4">
+                                <input type="radio" value="a" name={quiz.Id} onchange={changeHandler} />
+                                {quiz.answers.a}
+                            </div>
+                            <div class="slds-col slds-size_1-of-4">
+                                <input type="radio" value="b" name={quiz.Id} onchange={changeHandler} />
+                                {quiz.answers.b}
+                            </div>
+                            <div class="slds-col slds-size_1-of-4">
+                                <input type="radio" value="c" name={quiz.Id} onchange={changeHandler} />
+                                {quiz.answers.c}
+                            </div>
+                            <div class="slds-col slds-size_1-of-4">
+                                <input type="radio" value="d" name={quiz.Id} onchange={changeHandler} />
+                                {quiz.answers.d}
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="slds-align_absolute-center">
+                <lightning-button class="slds-m-around_medium" variant="brand" label="Submit" type="submit"
+                    title="Submit Quiz" disabled={allNotSelected} onclick={submitHandler}>
+                </lightning-button>
+                <lightning-button class="slds-m-around_medium"
+                    variant="brand" label="Reset" type="reset" title="Reset Quiz" onclick={resetHandler}>
+                </lightning-button>
+            </div>
+        </form>
+    </lightning-card>
+</template>
